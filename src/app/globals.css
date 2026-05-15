@@ -1,0 +1,92 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  .theme {
+    --font-heading: var(--font-heading);
+    --font-sans: var(--font-sans);
+  }
+  :root {
+    --background: 17 17 17;
+    --foreground: 245 245 240;
+    --card: 26 26 26;
+    --card-foreground: 245 245 240;
+    --popover: 26 26 26;
+    --popover-foreground: 245 245 240;
+    --primary: 16 90 60;
+    --primary-foreground: 255 255 255;
+    --secondary: 45 45 45;
+    --secondary-foreground: 245 245 240;
+    --muted: 45 45 45;
+    --muted-foreground: 163 163 163;
+    --accent: 16 90 60;
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 245 245 240;
+    --input: 245 245 240;
+    --ring: 16 90 60;
+    --radius: 0.5rem;
+    --container-width: 1200px;
+    --section-space: clamp(4rem, 8vw, 7rem);
+  }
+  body {
+    @apply bg-[#111111] text-[#F5F5F0] antialiased;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading), sans-serif;
+  }
+}
+
+@layer components {
+  .site-container {
+    width: min(100% - 2rem, var(--container-width));
+    margin-inline: auto;
+  }
+
+  .section-shell {
+    padding-block: var(--section-space);
+  }
+
+  .section-kicker {
+    @apply inline-flex items-center rounded-full border border-[#4ade80]/30 bg-[#4ade80]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#4ade80];
+  }
+
+  .section-title {
+    @apply text-4xl font-normal leading-tight text-[#F5F5F0] md:text-6xl tracking-tight;
+  }
+
+  .section-copy {
+    @apply text-base leading-relaxed text-[#F5F5F0]/70 md:text-lg;
+  }
+
+  .glass-panel {
+    @apply rounded-2xl border border-[#F5F5F0]/10 bg-[#F5F5F0]/[0.02];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #4ade80;
+  outline-offset: 2px;
+}
